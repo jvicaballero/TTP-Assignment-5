@@ -12,6 +12,6 @@ function addRow() {
 
 function removeRow() {
     let row = document.getElementsByClassName("row");
-    tr = Array.from(row);
+    let tr = Array.from(row);
     tr[tr.length - 1].parentNode.removeChild(tr[tr.length - 1]);
 }
