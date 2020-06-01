@@ -1,5 +1,4 @@
 let columns = 1;
-
 function addRow() {
     let table = document.getElementById("table");
     let row = document.createElement("tr");
