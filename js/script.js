@@ -49,3 +49,15 @@ function colorAllCells() {
         allCells[i].style.backgroundColor = selectedColor;
     }
 }
+
+var table = document.querySelector('#table');
+var selectedCells = table.getElementsByClassName('selected');
+
+
+function eventColorChange(cell){
+    cell.addEventListener("click", changeColor);
+}
+
+function changeColor(){
+    this.style.backgroundColor = selectedColor;
+}
