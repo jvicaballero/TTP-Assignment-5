@@ -57,7 +57,7 @@ function colorAllUncoloredCells() {
 }
 
 function allowChangeColor(cell){
-    cell.addEventListener("click", changeColor);
+    cell.addEventListener("click", setColor);
 
     cell.addEventListener("mousedown", function() {
         mouseHold = true;
@@ -79,7 +79,7 @@ function allowChangeColor(cell){
     })
 }
 
-function changeColor(){
+function setColor(){
     this.style.backgroundColor = selectedColor;
 }
 
