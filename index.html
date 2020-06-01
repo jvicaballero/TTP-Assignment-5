@@ -6,13 +6,12 @@
         <title>Assignment #5</title>
     </head>
     <body>
-
-        <select name="colors" id="color-select">
-            <option value="">--Select A color</option>
+        <select name="colors" id="color-select" onChange="selectColor(this.value)">
+            <option value="">--Select A Color</option>
             <option class="red" id="red" value="red">Red</option>
-            <option class="blue" id="blue" value="blue">blue</option>
-            <option class="green" id="green" value="green">green</option>
-            <option class="yellow" id="yellow" value="yellow">yellow</option>
+            <option class="blue" id="blue" value="blue">Blue</option>
+            <option class="green" id="green" value="green">Green</option>
+            <option class="yellow" id="yellow" value="yellow">Yellow</option>
         </select>
 
         <div id="addRowButton" onClick="addRow()">
@@ -26,6 +25,9 @@
         </div>
         <div id="removeColumnButton" onClick="removeColumn()">
             <button>Remove Column</button>
+        </div>
+        <div id="colorAllCellsButton" onClick="colorAllCells()">
+            <button>Color All Cells</button>
         </div>
 
         <table id="table">

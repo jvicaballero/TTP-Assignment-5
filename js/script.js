@@ -7,22 +7,11 @@ function addRow() {
     table.appendChild(row);
     for(let i = 0; i < columns; i++) {
         let cell = document.createElement("td");
+        cell.classList.add("cell");
         row.appendChild(cell);
     }
 }
 
-<<<<<<< HEAD
-function colorFill(clickedElement){
-    alert('I was clicked');
-    //clickedElement.target.style = 
-}
-
-/*document.getElementsByClassName("row").addEventListener("mousedown" , event => {
-    alert('you clicked me');
-})*/
-
-ul.addEventListener('click',colorFill, true);
-=======
 function removeRow() {
     let row = document.getElementsByClassName("row");
     let tr = Array.from(row);
@@ -35,6 +24,7 @@ function addColumn() {
     let tr = Array.from(row);
     for (let i = 0; i < tr.length; i++) {
         let cell = document.createElement("td");
+        cell.classList.add("cell");
         tr[i].appendChild(cell);
     }
 }
@@ -47,4 +37,16 @@ function removeColumn() {
         tr[i].removeChild(tr[i].lastChild);
     }
 }
->>>>>>> addAndRemoveCells
+
+let selectedColor = "";
+
+const selectColor = (color) => {
+    selectedColor = color;
+};
+
+function colorAllCells() {
+    let allCells = document.getElementsByClassName("cell");
+    for (let i = 0; i < allCells.length; i++) {
+        allCells[i].style.backgroundColor = selectedColor;
+    }
+}
