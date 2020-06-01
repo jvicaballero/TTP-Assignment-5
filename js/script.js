@@ -1,4 +1,5 @@
 let columns = 1;
+
 function addRow() {
     let table = document.getElementById("table");
     let row = document.createElement("tr");
@@ -7,6 +8,7 @@ function addRow() {
     for(let i = 0; i < columns; i++) {
         let cell = document.createElement("td");
         cell.classList.add("cell");
+        allowChangeColor(cell);
         row.appendChild(cell);
     }
 }
@@ -24,6 +26,7 @@ function addColumn() {
     for (let i = 0; i < tr.length; i++) {
         let cell = document.createElement("td");
         cell.classList.add("cell");
+        allowChangeColor(cell);
         tr[i].appendChild(cell);
     }
 }
@@ -38,10 +41,40 @@ function removeColumn() {
 }
 
 let selectedColor = "";
+let mouseHold = false;
+let currentColor = "";
 
 const selectColor = (color) => {
     selectedColor = color;
 };
+
+function allowChangeColor(cell){
+    cell.addEventListener("click", changeColor);
+
+    cell.addEventListener("mousedown", function() {
+        mouseHold = true;
+        currentColor = selectedColor;
+    })
+
+    cell.addEventListener("mousemove" , function() {
+        if (mouseHold == true)
+        {
+            cell.style.backgroundColor = currentColor;
+        }
+    })
+
+    cell.addEventListener("mouseup" , function() {
+        if (mouseHold == true)
+        {
+            mouseHold = false;
+        }
+    })
+}
+
+function changeColor(){
+    this.style.backgroundColor = selectedColor;
+}
+
 
 function colorAllCells() {
     let allCells = document.getElementsByClassName("cell");
@@ -50,14 +83,4 @@ function colorAllCells() {
     }
 }
 
-var table = document.querySelector('#table');
-var selectedCells = table.getElementsByClassName('selected');
 
-
-function eventColorChange(cell){
-    cell.addEventListener("click", changeColor);
-}
-
-function changeColor(){
-    this.style.backgroundColor = selectedColor;
-}
