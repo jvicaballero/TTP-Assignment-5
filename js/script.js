@@ -6,7 +6,6 @@ function addRow() {
     table.appendChild(row);
     for(let i = 0; i < columns; i++) {
         let cell = document.createElement("td");
-        cell.classList.add("cell");
         row.appendChild(cell);
     }
 }
@@ -23,7 +22,6 @@ function addColumn() {
     let tr = Array.from(row);
     for (let i = 0; i < tr.length; i++) {
         let cell = document.createElement("td");
-        cell.classList.add("cell");
         tr[i].appendChild(cell);
     }
 }
@@ -39,13 +37,28 @@ function removeColumn() {
 
 let selectedColor = "";
 
-const selectColor = (color) => {
+function selectColor(color) {
     selectedColor = color;
-};
+}
+
+function colorAllUncoloredCells() {
+    let allCells = document.getElementsByTagName("td");
+    for (let i = 0; i < allCells.length; i++) {
+        if (allCells[i].style.backgroundColor == "")
+            allCells[i].style.backgroundColor = selectedColor;
+    }
+}
 
 function colorAllCells() {
-    let allCells = document.getElementsByClassName("cell");
+    let allCells = document.getElementsByTagName("td");
     for (let i = 0; i < allCells.length; i++) {
         allCells[i].style.backgroundColor = selectedColor;
+    }
+}
+
+function resetColorOfCells() {
+    let allCells = document.getElementsByTagName("td");
+    for (let i = 0; i < allCells.length; i++) {
+        allCells[i].style.backgroundColor = "";
     }
 }
