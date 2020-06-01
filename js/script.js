@@ -44,9 +44,17 @@ let selectedColor = "";
 let mouseHold = false;
 let currentColor = "";
 
-const selectColor = (color) => {
+function selectColor(color) {
     selectedColor = color;
-};
+}
+
+function colorAllUncoloredCells() {
+    let allCells = document.getElementsByTagName("td");
+    for (let i = 0; i < allCells.length; i++) {
+        if (allCells[i].style.backgroundColor == "")
+            allCells[i].style.backgroundColor = selectedColor;
+    }
+}
 
 function allowChangeColor(cell){
     cell.addEventListener("click", changeColor);
@@ -77,10 +85,16 @@ function changeColor(){
 
 
 function colorAllCells() {
-    let allCells = document.getElementsByClassName("cell");
+    let allCells = document.getElementsByTagName("td");
     for (let i = 0; i < allCells.length; i++) {
         allCells[i].style.backgroundColor = selectedColor;
     }
 }
 
 
+function resetColorOfCells() {
+    let allCells = document.getElementsByTagName("td");
+    for (let i = 0; i < allCells.length; i++) {
+        allCells[i].style.backgroundColor = "";
+    }
+}
