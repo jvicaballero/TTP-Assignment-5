@@ -1,5 +1,4 @@
 let columns = 1;
-
 function addRow() {
     let table = document.getElementById("table");
     let row = document.createElement("tr");
@@ -11,7 +10,6 @@ function addRow() {
     }
 }
 
-<<<<<<< HEAD
 function colorFill(clickedElement){
     alert('I was clicked');
     //clickedElement.target.style = 
@@ -22,7 +20,6 @@ function colorFill(clickedElement){
 })*/
 
 ul.addEventListener('click',colorFill, true);
-=======
 function removeRow() {
     let row = document.getElementsByClassName("row");
     let tr = Array.from(row);
@@ -47,4 +44,4 @@ function removeColumn() {
         tr[i].removeChild(tr[i].lastChild);
     }
 }
->>>>>>> addAndRemoveCells
+
